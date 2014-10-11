@@ -46,9 +46,11 @@ out <- foreach(i = 1:100) %dopar% {
 require(parallel)
 nCores <- 8  # manually for non-cluster machines
 # nCores <- as.numeric(Sys.getenv('NSLOTS')) # for use on cluster
+
 #############################
 # using sockets
 #############################
+
 # ?clusterApply
 cl <- makeCluster(nCores) # by default this uses the PSOCK 
 #  mechanism as in the SNOW package - starting new jobs via Rscript 
@@ -72,6 +74,7 @@ res <- parLapply(cl, input, testFun)
 ################################
 # using forking
 ################################
+
 system.time(
 	res <- mclapply(input, testFun, mc.cores = nCores) 
 )

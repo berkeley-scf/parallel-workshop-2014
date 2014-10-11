@@ -77,11 +77,15 @@ knitr
 \begin_body
 
 \begin_layout Title
-An Introduction to Parallel Processing in R, C, Matlab, and Python 
+An Introduction to Parallel Processing 
 \begin_inset Newline newline
 \end_inset
 
-Plus an Introduction to the SCF Linux Cluster 
+in R, C, Matlab, and Python 
+\begin_inset Newline newline
+\end_inset
+
+Including an Introduction to the SCF Linux Cluster 
 \end_layout
 
 \begin_layout Standard
@@ -571,6 +575,12 @@ Here's an example script that illustrates staging your input data to the
 \begin_layout Standard
 
 \family typewriter
+#!/bin/bash
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
 if [ ! -d /tmp/$USER/ ]; then mkdir /tmp/$USER; fi
 \end_layout
 
@@ -595,8 +605,7 @@ cp ~/projectdir/inputData /tmp/$USER
 \begin_layout Standard
 
 \family typewriter
-R CMD BATCH --no-save sim.R sim.out # your R code should find inputData in
- 
+R CMD BATCH --no-save sim.R sim.out 
 \end_layout
 
 \begin_layout Standard
@@ -1753,7 +1762,7 @@ First let's consider parallel apply.
 
 \begin_layout Chunk
 
-<<parallelApply, eval=FALSE>>=
+<<parallelApply, eval=FALSE, tidy=FALSE>>=
 \end_layout
 
 \begin_layout Chunk

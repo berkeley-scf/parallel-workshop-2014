@@ -10,7 +10,7 @@ import os
 nCores = int(os.environ['NSLOTS'])
 # nCores = 8 # otherwise choose how many cores you want to use
 
-nSmp = 100000
+nSmp = 10000000
 m = 40
 def f(input):
     np.random.seed(input[0])
@@ -40,11 +40,13 @@ for i in range(nCores):
     p = mp.Process(target = f, args = (i, nSmp, result_queue))
     jobs.append(p)
     p.start()
-# wait until each child finishes
 
 for p in jobs:
     p.join() 
     results = [result_queue.get() for i in range(nCores)]
+
+# wait for results...
+# hmm, why are the jobs hanging - this code not working at the moment...
 
 print(results)
 
@@ -62,7 +64,7 @@ job_server = pp.Server(ncpus = nCores, secret = 'mysecretphrase')
 #   what it is should not be crucial)
 job_server.get_ncpus()
 
-nSmp = 1000000
+nSmp = 10000000
 m = 40
 def f(i, n):
     numpy.random.seed(i)
