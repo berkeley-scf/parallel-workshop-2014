@@ -3,13 +3,13 @@
 require(RhpcBLASctl)
 x <- matrix(rnorm(5000^2), 5000)
 
-omp_set_num_threads(4)
+blas_set_num_threads(4)
 system.time({
 x <- crossprod(x)
 U <- chol(x)
 })
 
-omp_set_num_threads(1)
+blas_set_num_threads(1)
 system.time({
 x <- crossprod(x)
 U <- chol(x)
