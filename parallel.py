@@ -34,6 +34,7 @@ def f(i, n, out):
     # return both index and result as tuple to show how to do that
     out.put((i, np.mean(np.random.normal(0, 1, n))))
     
+
 jobs = [] # list of processes
 nProc = nCores # don't have more processes than cores available
 for i in range(nCores): 
@@ -41,12 +42,12 @@ for i in range(nCores):
     jobs.append(p)
     p.start()
 
+# wait for results...
 for p in jobs:
     p.join() 
-    results = [result_queue.get() for i in range(nCores)]
 
-# wait for results...
-# hmm, why are the jobs hanging - this code not working at the moment...
+results = [result_queue.get() for i in range(nCores)]
+
 
 print(results)
 
