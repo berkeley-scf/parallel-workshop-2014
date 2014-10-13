@@ -1646,7 +1646,7 @@ top
 \end_layout
 
 \begin_layout Chunk
-<<foreach, eval=FALSE>>=
+<<foreach, eval=FALSE, tidy=FALSE>>=
 \end_layout
 
 \begin_layout Chunk
