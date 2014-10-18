@@ -113,18 +113,22 @@ options(replace.assign=TRUE, width=55)
 \end_layout
 
 \begin_layout Chunk
+
 <<read-chunk, echo=FALSE>>= 
 \end_layout
 
 \begin_layout Chunk
+
 read_chunk('parallel.R') 
 \end_layout
 
 \begin_layout Chunk
+
 read_chunk('parallel.py') 
 \end_layout
 
 \begin_layout Chunk
+
 @
 \end_layout
 
@@ -802,18 +806,22 @@ RhpcBLASctl
 \end_layout
 
 \begin_layout Chunk
+
 <<chunk0, eval=FALSE>>=
 \end_layout
 
 \begin_layout Chunk
+
 require(RhpcBLASctl)
 \end_layout
 
 \begin_layout Chunk
+
 omp_set_num_threads(Sys.getenv('NSLOTS'))
 \end_layout
 
 \begin_layout Chunk
+
 @
 \end_layout
 
@@ -991,30 +999,37 @@ qstat
 \end_layout
 
 \begin_layout Chunk
+
 <<chunk1, eval=FALSE, engine='bash'>>=
 \end_layout
 
 \begin_layout Chunk
+
 qstat # shows your jobs
 \end_layout
 
 \begin_layout Chunk
+
 qstat -u "*" # shows everyone's jobs
 \end_layout
 
 \begin_layout Chunk
+
 qstat -j 7094 # shows more info about a single job with process ID 7094
 \end_layout
 
 \begin_layout Chunk
+
 qdel 7094 # deletes a single job, in this case that with process ID 7094
 \end_layout
 
 \begin_layout Chunk
+
 qdel -u <username> # deletes all your jobs
 \end_layout
 
 \begin_layout Chunk
+
 @
 \end_layout
 
@@ -1219,10 +1234,12 @@ Here's some code that when run on an SCF Linux server illustrates the speed
 \end_layout
 
 \begin_layout Chunk
+
 <<RlinAlg, eval=TRUE>>=
 \end_layout
 
 \begin_layout Chunk
+
 @
 \end_layout
 
@@ -1646,10 +1663,12 @@ top
 \end_layout
 
 \begin_layout Chunk
+
 <<foreach, eval=FALSE, tidy=FALSE>>=
 \end_layout
 
 \begin_layout Chunk
+
 @
 \end_layout
 
@@ -1748,10 +1767,12 @@ First let's consider parallel apply.
 \end_layout
 
 \begin_layout Chunk
+
 <<parallelApply, eval=FALSE, tidy=FALSE>>=
 \end_layout
 
 \begin_layout Chunk
+
 @
 \end_layout
 
@@ -1771,10 +1792,12 @@ exp()
 \end_layout
 
 \begin_layout Chunk
+
 <<pvec, eval=FALSE>>=
 \end_layout
 
 \begin_layout Chunk
+
 @
 \end_layout
 
@@ -1831,10 +1854,12 @@ parallel
 \end_layout
 
 \begin_layout Chunk
+
 <<mcparallel, eval=FALSE>>=
 \end_layout
 
 \begin_layout Chunk
+
 @
 \end_layout
 
@@ -2424,10 +2449,12 @@ Pool.map()
 \end_layout
 
 \begin_layout Chunk
+
 <<python-mp, engine='python', eval=FALSE>>=
 \end_layout
 
 \begin_layout Chunk
+
 @
 \end_layout
 
@@ -2443,10 +2470,12 @@ We can also manually dispatch the jobs as follows.
 \end_layout
 
 \begin_layout Chunk
+
 <<python-mp-manualDispatch, engine='python', eval=FALSE>>=
 \end_layout
 
 \begin_layout Chunk
+
 @
 \end_layout
 
@@ -2470,10 +2499,12 @@ f()
 \end_layout
 
 \begin_layout Chunk
+
 <<python-pp, engine='python', eval=FALSE>>=
 \end_layout
 
 \begin_layout Chunk
+
 @
 \end_layout
 
@@ -2604,10 +2635,12 @@ parSapply()
 \end_layout
 
 \begin_layout Chunk
+
 <<RNG-apply, eval=FALSE>>=
 \end_layout
 
 \begin_layout Chunk
+
 @
 \end_layout
 
@@ -2621,10 +2654,12 @@ nextRNGStream()
 \end_layout
 
 \begin_layout Chunk
+
 <<RNGstream, eval=FALSE>>=
 \end_layout
 
 \begin_layout Chunk
+
 @
 \end_layout
 
@@ -2650,10 +2685,12 @@ RNGkind("L'Ecuyer-CMRG")
 \end_layout
 
 \begin_layout Chunk
+
 <<RNG-mclapply, eval=FALSE, tidy=FALSE>>=
 \end_layout
 
 \begin_layout Chunk
+
 @
 \end_layout
 
@@ -2773,10 +2810,12 @@ seed
 \end_layout
 
 \begin_layout Chunk
+
 <<RNG-doMPI, eval=TRUE>>=
 \end_layout
 
 \begin_layout Chunk
+
 @
 \end_layout
 
@@ -2837,10 +2876,12 @@ foreach
 \end_layout
 
 \begin_layout Chunk
+
 <<RNG-doRNG>>=
 \end_layout
 
 \begin_layout Chunk
+
 @
 \end_layout
 
@@ -2849,10 +2890,12 @@ Alternatively, you can do:
 \end_layout
 
 \begin_layout Chunk
+
 <<RNG-doRNG2>>=
 \end_layout
 
 \begin_layout Chunk
+
 @
 \end_layout
 
@@ -3004,10 +3047,12 @@ fork
 \end_layout
 
 \begin_layout Chunk
+
 <<fork, eval=FALSE>>=
 \end_layout
 
 \begin_layout Chunk
+
 @
 \end_layout
 
@@ -3938,7 +3983,7 @@ begin{verbatim}
 
 \begin_layout Plain Layout
 
-double sum = 0.0;
+double result = 0.0;
 \end_layout
 
 \begin_layout Plain Layout
@@ -3948,7 +3993,7 @@ double tmp;
 
 \begin_layout Plain Layout
 
-#pragma omp parallel for private (tmp, i) shared (sum)
+#pragma omp parallel for private (tmp, i) shared (result)
 \end_layout
 
 \begin_layout Plain Layout
@@ -3968,7 +4013,7 @@ for (int i=0; i<n; i++){
 
 \begin_layout Plain Layout
 
-   sum += tmp;
+   result += tmp;
 \end_layout
 
 \begin_layout Plain Layout
@@ -4001,6 +4046,20 @@ You should also be able to use syntax like the following for the parallel
 
 \family typewriter
 #pragma omp parallel for reduction(+:result)
+\end_layout
+
+\begin_layout Standard
+I believe that doing this sort of calculation where multiple threads write
+ to the same variable may be rather inefficient given time lost in waiting
+ to have access to 
+\emph on
+resul
+\emph default
+t, but presumably this would depend on how much time is spent in 
+\emph on
+myFun()
+\emph default
+ relative to the reduction operation.
 \end_layout
 
 \begin_layout Section
@@ -4090,12 +4149,22 @@ Rmpi
  
 \end_layout
 
+\begin_layout Standard
+It is possible to use MPI with Python using the 
+\emph on
+mpi4py
+\emph default
+ package, but I haven't provided any details here.
+ If you'd like more info, email consult@stat.berkeley.edu - I have some basic
+ template code that might be helpful.
+\end_layout
+
 \begin_layout Subsection
 Using message passing on a single node
 \end_layout
 
 \begin_layout Standard
-First let's get a field for MPI in the simple context of a single node.
+First let's get a feel for MPI in the simple context of a single node.
  Of course it's a bit silly to do this in reality on a single node on which
  one can take advantage of shared memory.
  
@@ -4583,10 +4652,12 @@ foreach
 \end_layout
 
 \begin_layout Chunk
+
 <<Rmpi-foreach, cache=TRUE>>=
 \end_layout
 
 \begin_layout Chunk
+
 @
 \end_layout
 
@@ -4683,10 +4754,12 @@ status open
 \end_layout
 
 \begin_layout Chunk
+
 <<Rmpi-usingMPIsyntax, cache=TRUE>>=
 \end_layout
 
 \begin_layout Chunk
+
 @
 \end_layout
 
@@ -4709,6 +4782,32 @@ foreach
 mpi.spawn.Rslaves()
 \emph default
  and then issuing commands to the slaves.
+\end_layout
+
+\begin_layout Standard
+One reason to use Rmpi on a single node is that for machines using openBLAS
+ (all of the compute servers except for the cluster nodes), there is a conflict
+ between the 
+\emph on
+multicore
+\emph default
+/
+\emph on
+parallel
+\emph default
+'s forking functionality and openBLAS that can cause 
+\emph on
+foreach
+\emph default
+ to hang when used with the 
+\emph on
+doParallel
+\emph default
+ or 
+\emph on
+doMC
+\emph default
+ parallel back ends.
 \end_layout
 
 \begin_layout Standard
@@ -4737,19 +4836,13 @@ One can also set up a cluster via sockets.
 \end_layout
 
 \begin_layout Chunk
+
 <<sockets, cache=TRUE>>=
 \end_layout
 
 \begin_layout Chunk
-@
-\end_layout
 
-\begin_layout Standard
-One reason to use Rmpi on a single node is that for machines using openBLAS
- (all of the compute servers except for the cluster nodes), there is a conflict
- between the multicore/parallel's forking functionality and openBLAS that
- causes foreach to hang when used with the doParallel or doMC parallel back
- ends.
+@
 \end_layout
 
 \begin_layout Subsubsection
@@ -5028,15 +5121,20 @@ mpirun -machinefile .hosts -np 1 R --no-save
 Our host file specifies three slots so I'll ask for two slaves in the R
  code, since there is also the master process and it will (inefficiently)
  use up the resources on a core.
- But note that whatever is in .hosts will get recycled if you ask for more
- processes than the number of slots.
+ But note that whatever is in 
+\emph on
+.hosts
+\emph default
+ will get recycled if you ask for more processes than the number of slots.
 \end_layout
 
 \begin_layout Chunk
+
 <<Rmpi-foreach-multipleNodes, eval=FALSE>>=
 \end_layout
 
 \begin_layout Chunk
+
 @
 \end_layout
 
@@ -5054,9 +5152,15 @@ mpirun -machinefile .hosts -np $np R CMD BATCH --no-save tmp.R tmp.out
 \end_layout
 
 \begin_layout Standard
-Then in your R code if you call startMPIcluster() with no arguments, it
- will start up $np-1 slave processes by default, so your R code will be
- more portable.
+Then in your R code if you call 
+\emph on
+startMPIcluster()
+\emph default
+ with no arguments, it will start up 
+\family typewriter
+$np-1
+\family default
+ slave processes by default, so your R code will be more portable.
  
 \end_layout
 
@@ -5096,8 +5200,76 @@ mpirun
  causes R to think it is not running interactively.
 \end_layout
 
+\begin_layout Paragraph
+Note on supercomputers
+\end_layout
+
+\begin_layout Standard
+Note: in some cases a cluster/supercomputer will be set up so that 
+\emph on
+Rmpi
+\emph default
+ is loaded and the worker processes are already started when you start R.
+ In this case you wouldn't need to load 
+\emph on
+Rmpi
+\emph default
+ or use 
+\emph on
+mpi.spawn.Rslaves()
+\emph default
+ (though you would still need to run 
+\emph on
+startMPIcluster()
+\emph default
+ if using 
+\emph on
+foreach
+\emph default
+ with 
+\emph on
+doMPI
+\emph default
+).
+ You can always check 
+\emph on
+mpi.comm.size()
+\emph default
+ to see if the workers are already set up.
+\end_layout
+
 \begin_layout Subsubsection
-Running an MPI job on the cluster
+Sockets in R example
+\end_layout
+
+\begin_layout Standard
+This is not much different from the single node case.
+ You just need to specify a character vector with the machine names as the
+ input to 
+\emph on
+makeCluster()
+\emph default
+.
+ 
+\end_layout
+
+\begin_layout Chunk
+
+<<sockets-multipleNodes, cache=TRUE>>=
+\end_layout
+
+\begin_layout Chunk
+
+@
+\end_layout
+
+\begin_layout Standard
+As before, be aware that if you use linear algebra, your processes will
+ use more cores than the number of slaves specified.
+\end_layout
+
+\begin_layout Subsection
+Running MPI (or Sockets in R) on the SCF cluster
 \end_layout
 
 \begin_layout Standard
@@ -5177,73 +5349,16 @@ target "http://eml.berkeley.edu/563"
 \end_layout
 
 \begin_layout Standard
-It is possible to use MPI with Python but I haven't provided any details
- here.
-\end_layout
-
-\begin_layout Subsubsection
-Note on supercomputers
-\end_layout
-
-\begin_layout Standard
-Note: in some cases a cluster/supercomputer will be set up so that 
+To run a job using sockets in R on the cluster, you should be able to make
+ use of 
 \emph on
-Rmpi
+$TMPDIR/machines
 \emph default
- is loaded and the worker processes are already started when you start R.
- In this case you wouldn't need to load 
-\emph on
-Rmpi
-\emph default
- or use 
-\emph on
-mpi.spawn.Rslaves()
-\emph default
- (though you would still need to run 
-\emph on
-startMPIcluster()
-\emph default
- if using 
-\emph on
-foreach
-\emph default
- with 
-\emph on
-doMPI
-\emph default
-).
- You can always check 
-\emph on
-mpi.comm.size()
-\emph default
- to see if the workers are already set up.
-\end_layout
-
-\begin_layout Subsubsection
-Sockets in R example
-\end_layout
-
-\begin_layout Standard
-This is not much different from the single node case.
- You just need to specify a character vector with the machine names as the
- input to 
+ in 
 \emph on
 makeCluster()
 \emph default
-.
-\end_layout
-
-\begin_layout Chunk
-<<sockets-multipleNodes, cache=TRUE>>=
-\end_layout
-
-\begin_layout Chunk
-@
-\end_layout
-
-\begin_layout Standard
-As before, be aware that if you use linear algebra, your processes will
- use more cores than the number of slaves specified.
+ though I haven't tested this.
 \end_layout
 
 \end_body
