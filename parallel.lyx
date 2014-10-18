@@ -3677,9 +3677,10 @@ n", myID);
 
 \begin_layout Plain Layout
 
-         printf("Number of threads = %d
+         printf("I'm the boss and control %i threads.
+ How come they're in front of me?
 \backslash
-n", nthreads);
+n", nThreads);
 \end_layout
 
 \begin_layout Plain Layout
@@ -4897,7 +4898,7 @@ First, we can pass the machine names directly, replicating the name if we
 \begin_layout Standard
 
 \family typewriter
-mpirun --host arwen,arwen,treebeard -np 3 mpiHello
+mpirun --host arwen,arwen,radagast -np 3 mpiHello
 \end_layout
 
 \begin_layout Standard
@@ -4922,7 +4923,7 @@ Hello from processor 0 of 3 on arwen
 
 \begin_layout Plain Layout
 
-Hello from processor 2 of 3 on treebeard 
+Hello from processor 2 of 3 on radagast 
 \end_layout
 
 \begin_layout Plain Layout
@@ -4962,7 +4963,7 @@ echo 'arwen slots=2' >> .hosts
 \begin_layout Standard
 
 \family typewriter
-echo 'treebeard slots=1' >> .hosts
+echo 'radagast slots=1' >> .hosts
 \end_layout
 
 \begin_layout Standard
@@ -5035,22 +5036,22 @@ Hello from processor 4 of 12 on arwen
 
 \begin_layout Plain Layout
 
-Hello from processor 5 of 12 on treebeard 
+Hello from processor 5 of 12 on radagast 
 \end_layout
 
 \begin_layout Plain Layout
 
-Hello from processor 8 of 12 on treebeard 
+Hello from processor 8 of 12 on radagast 
 \end_layout
 
 \begin_layout Plain Layout
 
-Hello from processor 11 of 12 on treebeard 
+Hello from processor 11 of 12 on radagast 
 \end_layout
 
 \begin_layout Plain Layout
 
-Hello from processor 2 of 12 on treebeard 
+Hello from processor 2 of 12 on radagast 
 \end_layout
 
 \begin_layout Plain Layout

@@ -1,4 +1,5 @@
 #include <iostream>
+#include <omp.h>
 using namespace std;
 
 // compile with:  g++  -L/usr/local/lib -fopenmp sectionsOpenMP.cpp -o sectionsOpenMP 
@@ -7,7 +8,8 @@ int main(){
   
   #pragma omp parallel // starts a new team of threads
   {
-    cout << "I'm the 0th chunk.\n";  // should get run by each thread
+    int myID = omp_get_thread_num();
+    cout << "I'm the 0th chunk on thread " <<  myID <<  "." << endl;  // should get run by each thread
 
     #pragma omp barrier // if we include this, all the 0th reports should happen first
 
@@ -15,14 +17,14 @@ int main(){
     { 
       // everything herein is run only by a single thread
       #pragma omp section 
-      {       cout << "I'm the 1st chunk." << endl; }
+      {       cout << "I'm the 1st chunk on thread " << myID << "." << endl; }
       #pragma omp section 
       { 
-        cout << "I'm the 2nd chunk." << endl;
-        cout << "I'm the 3rd chunk." << endl;
+        cout << "I'm the 2nd chunk on thread " << myID << "." << endl;
+        cout << "I'm the 3rd chunk on thread " << myID << "." << endl;
       } 
       #pragma omp section 
-      { cout << "I'm the 4th chunk. See ya." << endl; }
+      { cout << "I'm the 4th chunk on thread " << myID << "." << endl; }
     } // implied barrier
   }
 
