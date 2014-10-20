@@ -113,22 +113,18 @@ options(replace.assign=TRUE, width=55)
 \end_layout
 
 \begin_layout Chunk
-
 <<read-chunk, echo=FALSE>>= 
 \end_layout
 
 \begin_layout Chunk
-
 read_chunk('parallel.R') 
 \end_layout
 
 \begin_layout Chunk
-
 read_chunk('parallel.py') 
 \end_layout
 
 \begin_layout Chunk
-
 @
 \end_layout
 
@@ -806,22 +802,18 @@ RhpcBLASctl
 \end_layout
 
 \begin_layout Chunk
-
 <<chunk0, eval=FALSE>>=
 \end_layout
 
 \begin_layout Chunk
-
 require(RhpcBLASctl)
 \end_layout
 
 \begin_layout Chunk
-
 omp_set_num_threads(Sys.getenv('NSLOTS'))
 \end_layout
 
 \begin_layout Chunk
-
 @
 \end_layout
 
@@ -999,37 +991,30 @@ qstat
 \end_layout
 
 \begin_layout Chunk
-
 <<chunk1, eval=FALSE, engine='bash'>>=
 \end_layout
 
 \begin_layout Chunk
-
 qstat # shows your jobs
 \end_layout
 
 \begin_layout Chunk
-
 qstat -u "*" # shows everyone's jobs
 \end_layout
 
 \begin_layout Chunk
-
 qstat -j 7094 # shows more info about a single job with process ID 7094
 \end_layout
 
 \begin_layout Chunk
-
 qdel 7094 # deletes a single job, in this case that with process ID 7094
 \end_layout
 
 \begin_layout Chunk
-
 qdel -u <username> # deletes all your jobs
 \end_layout
 
 \begin_layout Chunk
-
 @
 \end_layout
 
@@ -1234,12 +1219,10 @@ Here's some code that when run on an SCF Linux server illustrates the speed
 \end_layout
 
 \begin_layout Chunk
-
 <<RlinAlg, eval=TRUE>>=
 \end_layout
 
 \begin_layout Chunk
-
 @
 \end_layout
 
@@ -1663,12 +1646,10 @@ top
 \end_layout
 
 \begin_layout Chunk
-
 <<foreach, eval=FALSE, tidy=FALSE>>=
 \end_layout
 
 \begin_layout Chunk
-
 @
 \end_layout
 
@@ -1767,12 +1748,10 @@ First let's consider parallel apply.
 \end_layout
 
 \begin_layout Chunk
-
 <<parallelApply, eval=FALSE, tidy=FALSE>>=
 \end_layout
 
 \begin_layout Chunk
-
 @
 \end_layout
 
@@ -1792,12 +1771,10 @@ exp()
 \end_layout
 
 \begin_layout Chunk
-
 <<pvec, eval=FALSE>>=
 \end_layout
 
 \begin_layout Chunk
-
 @
 \end_layout
 
@@ -1854,12 +1831,10 @@ parallel
 \end_layout
 
 \begin_layout Chunk
-
 <<mcparallel, eval=FALSE>>=
 \end_layout
 
 \begin_layout Chunk
-
 @
 \end_layout
 
@@ -2449,12 +2424,10 @@ Pool.map()
 \end_layout
 
 \begin_layout Chunk
-
 <<python-mp, engine='python', eval=FALSE>>=
 \end_layout
 
 \begin_layout Chunk
-
 @
 \end_layout
 
@@ -2470,12 +2443,10 @@ We can also manually dispatch the jobs as follows.
 \end_layout
 
 \begin_layout Chunk
-
 <<python-mp-manualDispatch, engine='python', eval=FALSE>>=
 \end_layout
 
 \begin_layout Chunk
-
 @
 \end_layout
 
@@ -2499,12 +2470,10 @@ f()
 \end_layout
 
 \begin_layout Chunk
-
 <<python-pp, engine='python', eval=FALSE>>=
 \end_layout
 
 \begin_layout Chunk
-
 @
 \end_layout
 
@@ -2635,12 +2604,10 @@ parSapply()
 \end_layout
 
 \begin_layout Chunk
-
 <<RNG-apply, eval=FALSE>>=
 \end_layout
 
 \begin_layout Chunk
-
 @
 \end_layout
 
@@ -2654,12 +2621,10 @@ nextRNGStream()
 \end_layout
 
 \begin_layout Chunk
-
 <<RNGstream, eval=FALSE>>=
 \end_layout
 
 \begin_layout Chunk
-
 @
 \end_layout
 
@@ -2685,12 +2650,10 @@ RNGkind("L'Ecuyer-CMRG")
 \end_layout
 
 \begin_layout Chunk
-
 <<RNG-mclapply, eval=FALSE, tidy=FALSE>>=
 \end_layout
 
 \begin_layout Chunk
-
 @
 \end_layout
 
@@ -2810,12 +2773,10 @@ seed
 \end_layout
 
 \begin_layout Chunk
-
 <<RNG-doMPI, eval=TRUE>>=
 \end_layout
 
 \begin_layout Chunk
-
 @
 \end_layout
 
@@ -2876,12 +2837,10 @@ foreach
 \end_layout
 
 \begin_layout Chunk
-
 <<RNG-doRNG>>=
 \end_layout
 
 \begin_layout Chunk
-
 @
 \end_layout
 
@@ -2890,12 +2849,10 @@ Alternatively, you can do:
 \end_layout
 
 \begin_layout Chunk
-
 <<RNG-doRNG2>>=
 \end_layout
 
 \begin_layout Chunk
-
 @
 \end_layout
 
@@ -3047,12 +3004,10 @@ fork
 \end_layout
 
 \begin_layout Chunk
-
 <<fork, eval=FALSE>>=
 \end_layout
 
 \begin_layout Chunk
-
 @
 \end_layout
 
@@ -4653,12 +4608,10 @@ foreach
 \end_layout
 
 \begin_layout Chunk
-
 <<Rmpi-foreach, cache=TRUE>>=
 \end_layout
 
 \begin_layout Chunk
-
 @
 \end_layout
 
@@ -4755,12 +4708,10 @@ status open
 \end_layout
 
 \begin_layout Chunk
-
 <<Rmpi-usingMPIsyntax, cache=TRUE>>=
 \end_layout
 
 \begin_layout Chunk
-
 @
 \end_layout
 
@@ -4837,12 +4788,10 @@ One can also set up a cluster via sockets.
 \end_layout
 
 \begin_layout Chunk
-
 <<sockets, cache=TRUE>>=
 \end_layout
 
 \begin_layout Chunk
-
 @
 \end_layout
 
@@ -4946,12 +4895,20 @@ end{verbatim}
 \begin_layout Standard
 
 \family typewriter
-mpirun --host arwen,arwen,treebeard -np 3 quad_mpi
+mpirun --host arwen,arwen,radagast -np 3 quad_mpi
 \end_layout
 
 \begin_layout Standard
 Alternatively, we can create a file with the relevant information.
- Here we'll specify two processes on arwen for every one process on treebeard.
+ Here we'll specify two processes on 
+\emph on
+arwen
+\emph default
+ for every one process on 
+\emph on
+radagast
+\emph default
+.
 \end_layout
 
 \begin_layout Standard
@@ -5130,12 +5087,10 @@ Our host file specifies three slots so I'll ask for two slaves in the R
 \end_layout
 
 \begin_layout Chunk
-
 <<Rmpi-foreach-multipleNodes, eval=FALSE>>=
 \end_layout
 
 \begin_layout Chunk
-
 @
 \end_layout
 
@@ -5255,12 +5210,10 @@ makeCluster()
 \end_layout
 
 \begin_layout Chunk
-
 <<sockets-multipleNodes, cache=TRUE>>=
 \end_layout
 
 \begin_layout Chunk
-
 @
 \end_layout
 
